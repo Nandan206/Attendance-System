@@ -55,19 +55,5 @@ Ensure the following are installed on your system:
 
 Create a .env file (use .env.example as a template) and add your MongoDB URI, AWS SES credentials (if using), and other sensitive information.
 
-## Running the Application
-Run Barcode Scanner:
-**Start the barcode scanning script to capture attendance using the camera**.
-
-```bash
-python hack.py
-
-├── public                 # Contains CSS and client-side assets
-│   └── styles
-│       └── loginsty.css   # Styling for the login page
-├── views                  # Contains EJS templates
-│   └── admin.ejs          # Template for the admin dashboard
-├── app.js                 # Main server file
-├── hack.py                # Barcode scanning script
-├── package.json           # Node dependencies
-└── README.md              # Project documentation
+## Access the Admin Dashboard:
+Open your browser and go to http://localhost:3000/admin to access the admin dashboard.
