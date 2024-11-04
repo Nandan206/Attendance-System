@@ -37,7 +37,7 @@ Ensure the following are installed on your system:
 ### Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Nandan206/smart-attendance-system.git
+   git clone https://github.com/Nandan206/Attendance-System
    cd smart-attendance-system
 2. **Install Node Dependencies**:
    ```bash
