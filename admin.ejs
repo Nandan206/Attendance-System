@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="C:\Users\91915\Desktop\hackathoon\loginsty.css"> <!-- Correct path for your CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .header {
+            margin-bottom: 20px;
+        }
+
+        .overview-boxes {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .box {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            width: 23%;
+            text-align: center;
+        }
+
+        .student-list {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Attendance</a></li>
+            <li><a href="#">Students List</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h2>Welcome, Admin!</h2>
+            <p>Here's an overview of today's attendance.</p>
+        </div>
+
+        <div class="overview-boxes">
+            <div class="box">
+                <h3>Total Students</h3>
+                <p><%= total_students %></p>
+            </div>
+            <div class="box">
+                <h3>Present Today</h3>
+                <p><%= present_today %></p>
+            </div>
+            <div class="box">
+                <h3>Absent Today</h3>
+                <p><%= absent_today %></p>
+            </div>
+            <div class="box">
+                <h3>Attendance Rate</h3>
+                <p><%= total_students > 0 ? ((present_today / total_students) * 100).toFixed(2) + '%' : '0%' %></p>
+            </div>
+        </div>
+
+        <div class="student-list">
+            <h3>Student Attendance</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Last Marked</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach(student => { %>
+                    <tr>
+                        <td><%= student._id %></td>
+                        <td><%= student.name %></td>
+                        <td><%= student.attendance.length > 0 ? student.attendance[student.attendance.length - 1].status : 'Not marked' %></td>
+                        <td><%= student.attendance.length > 0 ? student.attendance[student.attendance.length - 1].date + ' ' + student.attendance[student.attendance.length - 1].time : 'N/A' %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

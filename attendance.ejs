@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link rel="stylesheet" href="/public/loginsty.css"> <!-- CSS link -->
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="/admin">Dashboard</a></li>
+            <li><a href="/attendance">Attendance</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h2>Attendance Details</h2>
+        </div>
+
+        <div class="student-list">
+            <h3>Student Attendance</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Last Marked</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% attendanceData.forEach(student => { %>
+                    <tr>
+                        <td><%= student.id %></td>
+                        <td><%= student.name %></td>
+                        <td><%= student.status %></td>
+                        <td><%= student.lastMarked %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
