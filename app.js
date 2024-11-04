@@ -13,7 +13,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB connection string
-const uri = 'mongodb+srv://nand:321nandan@cluster0.cfdbh.mongodb.net/attendance?retryWrites=true&w=majority&appName=Cluster0';
+const uri = 'mongodb+srv://yourdatabasenameandpassword@cluster0.cfdbh.mongodb.net/attendance?retryWrites=true&w=majority&appName=Cluster0';
 
 // Connect to MongoDB Atlas
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
