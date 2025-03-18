@@ -13,7 +13,7 @@ warnings.filterwarnings('ignore')
 sys.stderr = open(os.devnull, 'w')
 
 # MongoDB setup
-client = MongoClient('mongodb+srv://yourdatabasenameandpassword@cluster0.cfdbh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+client = MongoClient('mongodb+srv://yourdatabasenameandpassword@cluster.cfdbh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster')
 db = client['attendance']
 collection = db['students']
 
